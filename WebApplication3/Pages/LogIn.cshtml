@@ -1,0 +1,97 @@
+﻿@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <title>Your Page Title</title>
+</head>
+<body class="login-body">
+    <div class="column-wrapper">
+        <div class="wrapper">
+            <div class="login-container">
+                <h2>Login</h2>
+                <form>
+                    <div class="input-box">
+                        <span class="icon"><box-icon name='user' type='solid' color='#ffffff'></box-icon></span>
+                        <input type="text" id="username" required>
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><box-icon name='lock-alt' type='solid' color='#ffffff'></box-icon></span>
+                        <input type="password" id="password" required>
+                        <label for="password">Password</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    <div class="remember-forgot">
+                        <label><input type="checkbox">Remember me</label>
+                        <a href="#">Forgot Password?</a>
+                    </div>
+                    <div class="login-register">
+                        <p>
+                            Don't have an account ?
+                            <a href="#" class="register-link">
+                                Register
+                            </a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+            <div class="register-container">
+                <h2>Registration</h2>
+                <form>
+                    <div class="input-box">
+                        <span class="icon"><box-icon name='user' type='solid' color='#ffffff'></box-icon></span>
+                        <div class="name-fields">
+                            <div class="name-field">
+                                <input type="text" id="firstName" required>
+                                <label for="firstName">First Name</label>
+                            </div>
+                            <div class="name-field">
+                                <input type="text" id="lastName" required>
+                                <label for="lastName">Last Name</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><box-icon name='user' type='solid' color='#ffffff'></box-icon></span>
+                        <input type="text" id="username" required>
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><box-icon name='lock-alt' type='solid' color='#ffffff'></box-icon></span>
+                        <input type="password" id="password" required>
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="input-box">
+                        <span class="icon"><box-icon name='user' type='solid' color='#ffffff'></box-icon></span>
+                        <input type="password" id="confirmPassword" required>
+                        <label for="confirmPassword">Confirm Password</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                    <div class="remember-forgot">
+                        <label><input type="checkbox"> I agree to the terms & conditions</label>
+                    </div>
+                    <div class="login-register">
+                        <p>
+                            Already have an account ?
+                            <a href="#" class="login-link">
+                                Login
+                            </a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/Custom.js"></script>
+</body>
+</html>

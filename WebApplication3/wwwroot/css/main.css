@@ -1,0 +1,52 @@
+﻿.container.swip {
+
+    position: relative;
+    width: 100%;
+    min-height: 690px; /* Adjust as needed */
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+    .container.swip img {
+        width: 100%; /* Make the image fill the container */
+    }
+
+    .container.swip .home-text h1 {
+        margin: 10px 0;
+    }
+
+.btnn {
+    padding: 0.6rem 1rem;
+    background: #913636fc;
+    color: #333;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 0.5rem;
+    border-radius: 25px;
+    max-width: 160px;
+    cursor: pointer;
+}
+
+    .btnn:hover {
+        background: #333;
+        color: #ff6a00ff;
+        text-decoration: none;
+    }
+
+/* Add this style to make swiper take full width */
+.swiper {
+    width: 100%;
+}
+
+/* Add this style to position the button */
+.swiper-slide {
+    position: relative;
+}
+
+.home swiper{
+    background-color:black;
+
+}

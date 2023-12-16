@@ -5,24 +5,152 @@
       "PackagePath": "staticwebassets\\WebApplication3.bundle.scp.css"
     },
     {
-      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\Style.css",
-      "PackagePath": "staticwebassets\\css\\Style.css"
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\StyleA.css",
+      "PackagePath": "staticwebassets\\css\\StyleA.css"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\backmain.png",
+      "PackagePath": "staticwebassets\\css\\backmain.png"
     },
     {
       "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\bg2.jpg",
       "PackagePath": "staticwebassets\\css\\bg2.jpg"
     },
     {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\css\\font-awesome.min.css"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\home1.png",
+      "PackagePath": "staticwebassets\\css\\home1.png"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\home2.png",
+      "PackagePath": "staticwebassets\\css\\home2.png"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\home3.png",
+      "PackagePath": "staticwebassets\\css\\home3.png"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\logo.png",
+      "PackagePath": "staticwebassets\\css\\logo.png"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\main.css",
+      "PackagePath": "staticwebassets\\css\\main.css"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\maneger.css",
+      "PackagePath": "staticwebassets\\css\\maneger.css"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\responsive.css",
+      "PackagePath": "staticwebassets\\css\\responsive.css"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\shared.css",
+      "PackagePath": "staticwebassets\\css\\shared.css"
+    },
+    {
       "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\favicon.ico",
-      "PackagePath": "staticwebassets\\favicon.ico"
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
-      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\js\\Custom.js",
-      "PackagePath": "staticwebassets\\js\\Custom.js"
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\style.css.map",
+      "PackagePath": "staticwebassets\\css\\style.css.map"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\style.scss",
+      "PackagePath": "staticwebassets\\css\\style.scss"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\images\\about-img.png",
+      "PackagePath": "staticwebassets\\images\\about-img.png"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\images\\client1.jpg",
+      "PackagePath": "staticwebassets\\images\\client1.jpg"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\images\\client2.jpg",
+      "PackagePath": "staticwebassets\\images\\client2.jpg"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\images\\f1.png",
+      "PackagePath": "staticwebassets\\images\\f1.png"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\images\\f2.png",
+      "PackagePath": "staticwebassets\\images\\f2.png"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\images\\f3.png",
+      "PackagePath": "staticwebassets\\images\\f3.png"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\images\\f4.png",
+      "PackagePath": "staticwebassets\\images\\f4.png"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\images\\f5.png",
+      "PackagePath": "staticwebassets\\images\\f5.png"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\images\\f6.png",
+      "PackagePath": "staticwebassets\\images\\f6.png"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\images\\f7.png",
+      "PackagePath": "staticwebassets\\images\\f7.png"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\images\\f8.png",
+      "PackagePath": "staticwebassets\\images\\f8.png"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\images\\f9.png",
+      "PackagePath": "staticwebassets\\images\\f9.png"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\images\\hero-bg.jpg",
+      "PackagePath": "staticwebassets\\images\\hero-bg.jpg"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\images\\o1.jpg",
+      "PackagePath": "staticwebassets\\images\\o1.jpg"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\images\\o2.jpg",
+      "PackagePath": "staticwebassets\\images\\o2.jpg"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\js\\CustomA.js",
+      "PackagePath": "staticwebassets\\js\\CustomA.js"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\js\\custom.js",
+      "PackagePath": "staticwebassets\\js\\custom.js"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\js\\jquery-3.4.1.min.js",
+      "PackagePath": "staticwebassets\\js\\jquery-3.4.1.min.js"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
     },
     {
       "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\js\\site.js",
@@ -255,6 +383,14 @@
     {
       "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\lib\\loogo.ico",
+      "PackagePath": "staticwebassets\\lib\\loogo.ico"
+    },
+    {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\logo.ico",
+      "PackagePath": "staticwebassets\\logo.ico"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.WebApplication3.Microsoft.AspNetCore.StaticWebAssets.props",

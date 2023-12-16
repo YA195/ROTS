@@ -3,17 +3,23 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WebApplication3</title>
+    <title>@ViewData["Title"] - ROTS</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebApplication3.styles.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/css/Style.css" />
+    <link rel="stylesheet" href="~/css/shared.css" />
+    <link rel="stylesheet" href="~/js/custom.js" />
+
+    @RenderSection("Styles", required: false)
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  border-bottom box-shadow mb-3 @(IsLogin() ? "login-page" : "")">
+        <link rel="icon" href="~/lib/loogo.ico" type="image/x-icon" />
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm  border-bottom box-shadow mb-3 fixed-top" style="background-color: #99582A;">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">WebApplication3</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <img src="~/css/logo.png" alt="Company Name Logo" style="width: 50px; height: 50px;">
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -23,39 +29,62 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
                         </li>
+                        <li class="nav-item ">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/menu">Menue</a>
+                        </li>
+                        <!-- Index page (e.g., Index.cshtml) -->
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index" asp-fragment="about">About</a>
+                        </li>
+
+
+                       
                     </ul>
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item login-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Login">Login</a>
+                        <li class="nav-item shop-cart">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Cart">
+                                <span class="icon"><box-icon name='cart' type='solid' color='black'></box-icon></span>
+                            </a>
                         </li>
+                        <li class="nav-item login-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Login">
+                                <box-icon name='user' type='solid' color='black'></box-icon>
+                            </a>
+                        </li>
+                        <li class="nav-item icon-settings">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Settings">
+                                <span class="icon"><box-icon name='cog'></box-icon></span>
+                            </a>
+                        </li>
+                        <li class="nav-item admin-panel">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Manger">
+                                <span class="icon"><box-icon name='menu' color='black'></box-icon></span>
+                            </a>
+                        </li>
+                       
+                        
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" >
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - WebApplication3 - <a asp-area="" asp-page="/Login">Login</a>
-        </div>
-    </footer>
-
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
 
-    @await RenderSectionAsync("Scripts", required: false)
-
-    @functions {
-        private bool IsLogin()
-        {
-            return Context.Request.Path.StartsWithSegments("/Login");
-        }
-    }
+    @RenderSection("Scripts", required: false)
 </body>
 </html>
+
+
+
+
+
+

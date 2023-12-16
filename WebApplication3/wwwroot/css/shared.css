@@ -1,0 +1,112 @@
+﻿/* Extracted Navigation Bar Styles */
+.navbar {
+    position: fixed-top;
+    width: 100%;
+    top: 0;
+    font-weight: bolder;
+    background-color: bisque;
+}
+
+    .navbar a:hover {
+        color: rgba(0, 0, 0, 0.5);
+    }
+
+    .navbar a {
+        position: relative;
+        display: inline-block;
+        
+        
+    }
+
+    .navbar.login-page {
+        background-color: #c08552;
+    }
+
+    .navbar.Settings-icon {
+        background-color: #c08552;
+    }
+    .navbar.shop-cart{
+        background-color: #c08552;
+    }
+
+    .navbar a::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        border-radius: 5px;
+        background: rgba(0, 0, 0, 0.5);
+        left: 0;
+        bottom: -5px;
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.5s;
+    }
+
+    .navbar a:hover::after {
+        transform: scaleX(1);
+        color: rgba(0, 0, 0, 0.5);
+    }
+
+.navbar-nav .login-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: 2px solid rgba(251, 186, 114, 0.8);
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.navbar .login-item:hover {
+    background: #ca5310;
+    color: #bb4d00;
+}
+
+.transparent-navbar {
+    background-color: #dd0426 !important;
+    box-shadow: none !important;
+}
+.nav-item.icon-settings:hover {
+    background-color: darkred;
+    transition:0.5s;
+}
+.nav-item.icon-settings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: 2px solid rgba(251, 186, 114, 0.8);
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bolder;
+    transition:2s;
+}
+.nav-item.shop-cart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: 2px solid rgba(251, 186, 114, 0.8);
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bolder;
+    transition:2s;
+}
+.nav-item.shop-cart:hover {
+    background-color: darkred;
+    transition: 0.5s;
+}

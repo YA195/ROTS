@@ -12,6 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <link rel="stylesheet" href="~/css/StyleA.css" />
+
     <title>Your Page Title</title>
 </head>
 <body class="login-body">
@@ -33,7 +35,8 @@
                     <button type="submit" class="btn btn-primary">Login</button>
                     <div class="remember-forgot">
                         <label><input type="checkbox">Remember me</label>
-                        <a href="#">Forgot Password?</a>
+                        <a href="#" class="forgot-link">Forgot Password?</a>
+
                     </div>
                     <div class="login-register">
                         <p>
@@ -76,6 +79,11 @@
                         <input type="password" id="confirmPassword" required>
                         <label for="confirmPassword">Confirm Password</label>
                     </div>
+                    <div class="input-box">
+                        <span class="icon"><box-icon type='solid' name='phone' color='#ffffff'></box-icon></span>
+                        <input type="text" id="PhoneNum" required>
+                        <label for="PhoneNum">Phone Number</label>
+                    </div>
                     <button type="submit" class="btn btn-primary">Register</button>
                     <div class="remember-forgot">
                         <label><input type="checkbox"> I agree to the terms & conditions</label>
@@ -90,8 +98,9 @@
                     </div>
                 </form>
             </div>
+            
         </div>
     </div>
-    <script src="~/js/Custom.js"></script>
+    <script src="~/js/CustomA.js"></script>
 </body>
 </html>

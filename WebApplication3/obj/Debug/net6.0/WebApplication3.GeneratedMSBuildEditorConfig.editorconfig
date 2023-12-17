@@ -16,12 +16,24 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\ROTS\ROTS\WebApplication3\WebApplication3
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/ROTS/ROTS/WebApplication3/WebApplication3/Pages/DeliveryWorkers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVsaXZlcnlXb3JrZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ROTS/ROTS/WebApplication3/WebApplication3/Pages/Discount.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGlzY291bnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/ROTS/ROTS/WebApplication3/WebApplication3/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/ROTS/ROTS/WebApplication3/WebApplication3/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/ROTS/ROTS/WebApplication3/WebApplication3/Pages/Items.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSXRlbXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/ROTS/ROTS/WebApplication3/WebApplication3/Pages/LogIn.cshtml]

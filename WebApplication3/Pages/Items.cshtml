@@ -1,0 +1,118 @@
+﻿@page
+@model WebApplication3.Pages.ItemsModel
+@{
+    ViewData["Title"] = "Items";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="~/css/maneger.css" />
+    <style>
+        /* Styles for Items Page Content */
+        .items-content {
+            background-color: #fff; /* Set background color for the content */
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+        }
+
+        #itemForm {
+            max-width: 600px; /* Set max width for the form */
+            margin: 0 auto; /* Center the form horizontally */
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #007bff; /* Set button background color */
+            color: #fff; /* Set button text color */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #0056b3; /* Change button background color on hover */
+            }
+    </style>
+</head>
+<body>
+
+    <div id="wrapper" class="toggled">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+                <li class="active">
+                    <a asp-page="/Items">Menu </a>
+                </li>
+                <li>
+                    <a asp-page="/DeliveryWorkers">Workers</a>
+                </li>
+                <li>
+                    <a asp-page="#">Orders</a>
+                </li>
+                <li>
+                    <a asp-page="#">Customers</a>
+                </li>
+                <li>
+                    <a asp-page="#">Supliers</a>
+                </li>
+                <li>
+                    <a asp-page="/Discount">Promo Codes</a>
+                </li>
+                <li>
+                    <a asp-page="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <h1>@ViewData["Title"]</h1>
+                <!-- Your Items page content goes here -->
+                <div class="items-content">
+                    <h2>Your Items Page Content</h2>
+                    <!-- Add your specific content here -->
+                    <!-- For example, you can add your form here -->
+                    <form id="itemForm">
+                        <!-- Add your form fields here -->
+                        <div class="form-group">
+                            <label for="itemId">ID Item:</label>
+                            <input type="text" id="itemId" name="itemId" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="itemName">Name:</label>
+                            <input type="text" id="itemName" name="itemName" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="itemDescription">Description:</label>
+                            <input type="text" id="itemDescription" name="itemDescription" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="itemPrice">Price:</label>
+                            <input type="text" id="itemPrice" name="itemPrice" required />
+                        </div>
+                        <div class="form-group">
+                            <button type="button" onclick="addItem()">ADD</button>
+                            <button type="button" onclick="deleteItem()">DELETE</button>
+                            <button type="button" onclick="updateItem()">UPDATE</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+
+    <script src="script.js"></script>
+</body>
+</html>

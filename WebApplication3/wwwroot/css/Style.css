@@ -578,6 +578,10 @@ a:focus {
             -ms-flex-align: center;
             align-items: center;
         }
+.food_section img {
+    z-index: 1;
+}
+
 
             .food_section .box .options a svg {
                 width: 18px;

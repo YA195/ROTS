@@ -6,6 +6,14 @@ D:\ROTS\ROTS\WebApplication3\WebApplication3\bin\Debug\net6.0\WebApplication3.de
 D:\ROTS\ROTS\WebApplication3\WebApplication3\bin\Debug\net6.0\WebApplication3.runtimeconfig.json
 D:\ROTS\ROTS\WebApplication3\WebApplication3\bin\Debug\net6.0\WebApplication3.dll
 D:\ROTS\ROTS\WebApplication3\WebApplication3\bin\Debug\net6.0\WebApplication3.pdb
+D:\ROTS\ROTS\WebApplication3\WebApplication3\bin\Debug\net6.0\Dapper.dll
+D:\ROTS\ROTS\WebApplication3\WebApplication3\bin\Debug\net6.0\System.Data.SqlClient.dll
+D:\ROTS\ROTS\WebApplication3\WebApplication3\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+D:\ROTS\ROTS\WebApplication3\WebApplication3\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+D:\ROTS\ROTS\WebApplication3\WebApplication3\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+D:\ROTS\ROTS\WebApplication3\WebApplication3\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\ROTS\ROTS\WebApplication3\WebApplication3\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\ROTS\ROTS\WebApplication3\WebApplication3\obj\Debug\net6.0\WebApplication3.csproj.AssemblyReference.cache
 D:\ROTS\ROTS\WebApplication3\WebApplication3\obj\Debug\net6.0\WebApplication3.GeneratedMSBuildEditorConfig.editorconfig
 D:\ROTS\ROTS\WebApplication3\WebApplication3\obj\Debug\net6.0\WebApplication3.AssemblyInfoInputs.cache
 D:\ROTS\ROTS\WebApplication3\WebApplication3\obj\Debug\net6.0\WebApplication3.AssemblyInfo.cs
@@ -23,6 +31,7 @@ D:\ROTS\ROTS\WebApplication3\WebApplication3\obj\Debug\net6.0\staticwebassets.de
 D:\ROTS\ROTS\WebApplication3\WebApplication3\obj\Debug\net6.0\scopedcss\Pages\Shared\_Layout.cshtml.rz.scp.css
 D:\ROTS\ROTS\WebApplication3\WebApplication3\obj\Debug\net6.0\scopedcss\bundle\WebApplication3.styles.css
 D:\ROTS\ROTS\WebApplication3\WebApplication3\obj\Debug\net6.0\scopedcss\projectbundle\WebApplication3.bundle.scp.css
+D:\ROTS\ROTS\WebApplication3\WebApplication3\obj\Debug\net6.0\WebApplication3.csproj.CopyComplete
 D:\ROTS\ROTS\WebApplication3\WebApplication3\obj\Debug\net6.0\WebApplication3.dll
 D:\ROTS\ROTS\WebApplication3\WebApplication3\obj\Debug\net6.0\refint\WebApplication3.dll
 D:\ROTS\ROTS\WebApplication3\WebApplication3\obj\Debug\net6.0\WebApplication3.pdb

@@ -1,7 +1,13 @@
+using Microsoft.Extensions.DependencyInjection;
+using WebApplication3.Models;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+// Register DB class with connection string
+builder.Services.AddSingleton<DB>(_ => new DB(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 

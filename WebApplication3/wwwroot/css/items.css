@@ -1,0 +1,125 @@
+﻿/* Styles for Items Page Content */
+.items-content {
+    background-color: #aqua; /* Set background color for the content */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+    margin-bottom: 20px; /* Added margin between containers */
+}
+
+.text-box-container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+    .text-box-container .form-group {
+        margin-bottom: 15px;
+    }
+
+    .text-box-container button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+        .text-box-container button:hover {
+            background-color: #0056b3;
+        }
+
+.table-container {
+    margin-top: 20px;
+}
+
+.container {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+h2 {
+    font-size: 90px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.responsive-table li {
+    border-radius: 25px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    background-color: #ab8365;
+}
+
+.table-header {
+    background-color: #95A5A6;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    font-weight: bolder;
+}
+
+.table-row {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+}
+
+.col-1 {
+    flex-basis: 10%;
+}
+
+.col-2 {
+    flex-basis: 20%;
+}
+
+.col-3 {
+    flex-basis: 25%;
+    margin-right: 20px
+}
+
+.col-4 {
+    flex-basis: 15%;
+}
+
+.col-5 {
+    flex-basis: 20%;
+}
+
+.col-6 {
+    flex-basis: 15%;
+}
+
+@media all and (max-width: 767px) {
+    .table-header {
+        display: none;
+    }
+
+    .table-row {
+    }
+
+    .responsive-table li {
+        display: block;
+    }
+
+    .col {
+        flex-basis: 100%;
+    }
+
+    .col {
+        display: flex;
+        padding: 10px 0;
+    }
+
+        .col:before {
+            color: #6C7A89;
+            padding-right: 10px;
+            content: attr(data-label);
+            flex-basis: 50%;
+            text-align: right;
+        }
+}

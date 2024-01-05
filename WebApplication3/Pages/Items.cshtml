@@ -11,41 +11,18 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="~/css/maneger.css" />
-    <style>
-        /* Styles for Items Page Content */
-        .items-content {
-            background-color: #fff; /* Set background color for the content */
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
-        }
-
-        #itemForm {
-            max-width: 600px; /* Set max width for the form */
-            margin: 0 auto; /* Center the form horizontally */
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        button {
-            background-color: #007bff; /* Set button background color */
-            color: #fff; /* Set button text color */
-            padding: 10px 20px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-            button:hover {
-                background-color: #0056b3; /* Change button background color on hover */
-            }
-    </style>
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="~/css/items.css"> <!-- Reference the new CSS file -->
 </head>
 <body>
 
-    <div id="wrapper" class="toggled">
+    <div id="wrapper">
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
@@ -62,7 +39,7 @@
                     <a asp-page="#">Customers</a>
                 </li>
                 <li>
-                    <a asp-page="#">Supliers</a>
+                    <a asp-page="#">Suppliers</a>
                 </li>
                 <li>
                     <a asp-page="/Discount">Promo Codes</a>
@@ -72,47 +49,45 @@
                 </li>
             </ul>
         </div>
-        <!-- /#sidebar-wrapper -->
+
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
                 <h1>@ViewData["Title"]</h1>
-                <!-- Your Items page content goes here -->
-                <div class="items-content">
-                    <h2>Your Items Page Content</h2>
-                    <!-- Add your specific content here -->
-                    <!-- For example, you can add your form here -->
-                    <form id="itemForm">
-                        <!-- Add your form fields here -->
-                        <div class="form-group">
-                            <label for="itemId">ID Item:</label>
-                            <input type="text" id="itemId" name="itemId" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="itemName">Name:</label>
-                            <input type="text" id="itemName" name="itemName" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="itemDescription">Description:</label>
-                            <input type="text" id="itemDescription" name="itemDescription" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="itemPrice">Price:</label>
-                            <input type="text" id="itemPrice" name="itemPrice" required />
-                        </div>
-                        <div class="form-group">
-                            <button type="button" onclick="addItem()">ADD</button>
-                            <button type="button" onclick="deleteItem()">DELETE</button>
-                            <button type="button" onclick="updateItem()">UPDATE</button>
-                        </div>
-                    </form>
+
+                <!-- Text Boxes Container (unchanged) -->
+                <!-- Table Container -->
+                <div class="table-container">
+                    <div class="container">
+                        <h2>Menu Items</h2>
+                        <ul class="responsive-table">
+                            <li class="table-header">
+                                <div class="col col-1">Item ID</div>
+                                <div class="col col-2">Name</div>
+                                <div class="col col-3">Description</div>
+                                <div class="col col-4">Price</div>
+                                <div class="col col-5">Image Path</div>
+                                <div class="col col-6">Category</div>
+                            </li>
+                            @foreach (var item in Model.MenuItems)
+                            {
+                                <li class="table-row">
+                                    <div class="col col-1" data-label="Item ID">@item.ItemID</div>
+                                    <div class="col col-2" data-label="Name">@item.Name</div>
+                                    <div class="col col-3" data-label="Description">@item.Description</div>
+                                    <div class="col col-4" data-label="Price">@item.Price</div>
+                                    <div class="col col-5" data-label="Image Path">@item.ImagePath</div>
+                                    <div class="col col-6" data-label="Category">@item.Category</div>
+                                </li>
+                            }
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- /#page-content-wrapper -->
     </div>
-    <!-- /#wrapper -->
 
-    <script src="script.js"></script>
+    <!-- Script and Style Imports (unchanged) -->
+
 </body>
 </html>

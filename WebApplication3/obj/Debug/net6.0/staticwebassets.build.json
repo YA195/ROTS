@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "kvCVPLxtFIt5HSmQI0jZ42lut+/iUfk/N+kPxYYmUEY=",
+  "Hash": "zSczzHxPyrXqKkXdP7Q4DrsCecPuN5EhdngHsFjzDzQ=",
   "Source": "WebApplication3",
   "BasePath": "_content/WebApplication3",
   "Mode": "Default",
@@ -168,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\home3.png"
+    },
+    {
+      "Identity": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\items.css",
+      "SourceId": "WebApplication3",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\",
+      "BasePath": "_content/WebApplication3",
+      "RelativePath": "css/items.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\items.css"
     },
     {
       "Identity": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\logo.png",

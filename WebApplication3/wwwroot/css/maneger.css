@@ -1,8 +1,8 @@
-﻿    body {
-        padding-top: 75px;
-        height: 100%;
-        background-color: gray;
-    }
+﻿body {
+    padding-top: 75px;
+    height: 100%;
+    background-color: #543a18;
+}
 
     .nav-pills > li > a {
         border-radius: 0;
@@ -24,7 +24,7 @@
 
     #sidebar-wrapper {
         z-index: 1000;
-        position: absolute;
+        position: fixed;
         left: 250px;
         width: 0;
         height: 100%;

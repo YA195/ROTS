@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\css\\home3.png"
     },
     {
+      "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\items.css",
+      "PackagePath": "staticwebassets\\css\\items.css"
+    },
+    {
       "Id": "D:\\ROTS\\ROTS\\WebApplication3\\WebApplication3\\wwwroot\\css\\logo.png",
       "PackagePath": "staticwebassets\\css\\logo.png"
     },

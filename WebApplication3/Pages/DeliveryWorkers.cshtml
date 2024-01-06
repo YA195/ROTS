@@ -2,8 +2,8 @@
 @model WebApplication3.Pages.DeliveryWorkersModel
 @{
     ViewData["Title"] = "Delivery Workers";
-}
 
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,41 +11,18 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="~/css/maneger.css" />
-    <style>
-        /* Styles for Delivery Workers Page Content */
-        .delivery-workers-content {
-            background-color: #fff; /* Set background color for the content */
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
-        }
-
-        #deliveryWorkerForm {
-            max-width: 600px; /* Set max width for the form */
-            margin: 0 auto; /* Center the form horizontally */
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        button {
-            background-color: #007bff; /* Set button background color */
-            color: #fff; /* Set button text color */
-            padding: 10px 20px;
-            border: none;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-            button:hover {
-                background-color: #0056b3; /* Change button background color on hover */
-            }
-    </style>
+    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="~/css/items.css"> <!-- Reference the new CSS file -->
 </head>
 <body>
 
-    <div id="wrapper" class="toggled">
+    <div id="wrapper">
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
@@ -62,7 +39,7 @@
                     <a asp-page="#">Customers</a>
                 </li>
                 <li>
-                    <a asp-page="#">Supliers</a>
+                    <a asp-page="#">Suppliers</a>
                 </li>
                 <li>
                     <a asp-page="/Discount">Promo Codes</a>
@@ -72,52 +49,71 @@
                 </li>
             </ul>
         </div>
-        <!-- /#sidebar-wrapper -->
+        <div class="container fform">
+            <div class="title">Menue Items</div>
+            <form action="3">
+                <div class="item-details">
+                    <div class="inbut-box">
+                        <span class="details">Worker ID</span>
+                        <input type="text" placeholder="Enter The Delivery ID" required>
+                    </div>
+                    <div class="inbut-box">
+                        <span class="details">Name</span>
+                        <input type="text" placeholder="Enter The Name" required>
+                    </div>
+                    <div class="inbut-box">
+                        <span class="details">Email</span>
+                        <input type="text" placeholder="Enter Delivery Email" required>
+                    </div>
+                    <div class="inbut-box">
+                        <span class="details">Phone</span>
+                        <input type="text" placeholder="Enter The Phone" required>
+                    </div>
+                   
+                </div>
+                <div class="button add">
+                    <input type="submit" value="Add" />
+                </div>
+                <div class="button delete">
+                    <input type="submit" value="Delete" />
+                </div>
+                <div class="button update">
+                    <input type="submit" value="Update" />
+                </div>
+
+            </form>
+        </div>
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-                <h1>@ViewData["Title"]</h1>
-                <!-- Your Delivery Workers page content goes here -->
-                <div class="delivery-workers-content">
-                    <h2>Your Delivery Workers Page Content</h2>
-                    <!-- Add your specific content here -->
-                    <!-- For example, you can add your form here -->
-                    <form id="deliveryWorkerForm">
-                        <!-- Add your form fields here -->
-                        <div class="form-group">
-                            <label for="name">Name:</label>
-                            <input type="text" id="name" name="name" required />
-                        </div>
-                        <!-- Repeat similar code for other form fields -->
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" id="email" name="email" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Phone:</label>
-                            <input type="text" id="phone" name="phone" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="deliveryId">Delivery ID:</label>
-                            <input type="text" id="deliveryId" name="deliveryId" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password:</label>
-                            <input type="password" id="password" name="password" required />
-                        </div>
-                        <div class="form-group">
-                            <button type="button" onclick="addDeliveryWorker()">ADD</button>
-                            <button type="button" onclick="deleteDeliveryWorker()">DELETE</button>
-                            <button type="button" onclick="updateDeliveryWorker()">UPDATE</button>
-                        </div>
-                    </form>
+                <div class="table-container">
+                    <div class="container">
+                        <ul class="responsive-table">
+                            <li class="table-header">
+                                <div class="col col-1">Delivery ID</div>
+                                <div class="col col-2">Name</div>
+                                <div class="col col-3">Email</div>
+                                <div class="col col-4">Phone</div>
+                            </li>
+                           @*  @foreach (var item in Model.MenuItems)
+                            {
+                                <li class="table-row">
+                                    <div class="col col-1" data-label="Item ID">@item.ItemID</div>
+                                    <div class="col col-2" data-label="Name">@item.Name</div>
+                                    <div class="col col-3" data-label="Description">@item.Description</div>
+                                    <div class="col col-4" data-label="Price">@item.Price</div>
+                                    <div class="col col-5" data-label="Image Path">@item.ImagePath</div>
+                                    <div class="col col-6" data-label="Category">@item.Category</div>
+                                </li>
+                            } *@
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-        <!-- /#page-content-wrapper -->
     </div>
-    <!-- /#wrapper -->
 
-    <script src="script.js"></script>
+    <!-- Script and Style Imports (unchanged) -->
+
 </body>
 </html>

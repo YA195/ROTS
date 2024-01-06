@@ -1,4 +1,7 @@
 ﻿/* Extracted Navigation Bar Styles */
+.container {
+    max-width: 1500px;
+}
 .navbar {
     position: fixed-top;
     width: 100%;

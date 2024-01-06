@@ -53,7 +53,8 @@ h2 {
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
-    background-color: #ab8365;
+    background-color: #b0703f;
+    overflow: hidden;
 }
 
 .table-header {
@@ -123,3 +124,96 @@ h2 {
             text-align: right;
         }
 }
+.container.fform {
+    width: 100% !important;
+    max-width: 1170px;
+    background-color: #824a22;
+    padding: 25px 30px;
+    border-radius: 25px;
+}
+
+    .container.fform .title {
+        font-size: 25px;
+        font-weight: 700;
+        position: relative;
+    }
+
+        .container.fform .title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 3px;
+            width: 100px;
+            background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(121,41,9,1) 35%);
+        }
+
+.container form .item-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+form .inbut-box {
+    margin: 20px 0 12px 0;
+}
+
+.item-details .inbut-box .details {
+    display: block;
+    font-weight: 650;
+    margin-bottom: 5px;
+}
+
+.item-details .inbut-box input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: 0.3s ease;
+    background: #F6AF65;
+    border: none;
+}
+
+    .item-details .inbut-box input:focus, .item-details .inbut-box input:valid {
+        border-color: #9b29b6;
+    }
+
+form .button input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    color: #000;
+    font-size: 22px;
+    font-weight: 600;
+    border-radius: 25px;
+    letter-spacing: 1px;
+    background: linear-gradient(90deg, rgba(95, 1, 1, 1) 0%, rgba(146, 69, 37, 1) 64%);
+    transition: background 0.3s ease-in;
+    margin: 5px;
+    box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 2);
+    border: none
+}
+
+    form .button input:hover {
+        background: linear-gradient(90deg, rgba(146,69,37,1) 0%, rgba(95,1,1,1) 64%);
+        transition: background 0.3s ease-in;
+        box-shadow:none;
+    }
+.table-row-link {
+    display: block; /* Make the entire anchor tag clickable */
+    text-decoration: none; /* Remove default anchor tag styling */
+    color: inherit; /* Inherit text color from parent */
+}
+
+    .table-row-link:hover {
+        box-shadow: 15px;
+        font-weight: 800;
+        color: black;
+        letter-spacing: 2px;
+        transition: 1s
+    }
+ 

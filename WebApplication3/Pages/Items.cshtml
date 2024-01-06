@@ -49,14 +49,65 @@
                 </li>
             </ul>
         </div>
+        <div class="container fform">
+            <div class="title">Menu Items</div>
+            <form method="post" asp-page-handler="OnPost">
+                <div class="item-details">
+                    <div class="inbut-box">
+                        <span class="details">Item ID</span>
+                        <input asp-for="NewItemId" placeholder="Enter Item ID" id="itemid" disabled>
+                        <input type="hidden" asp-for="item.itemid">
 
+                    </div>
+
+                    <div class="inbut-box">
+                        <span class="details">Item Name</span>
+                        <input  asp-for="item.itemname"  placeholder="Enter Item Name" id="itemname" >
+                    </div>
+                    <div class="inbut-box">
+                        <span class="details">Description</span>
+                        <input  asp-for="item.description" placeholder="Enter Item Description" id="itemdescription" >
+                    </div>
+                    <div class="inbut-box">
+                        <span class="details">Image</span>
+                        <input asp-for="item.imagepath"  placeholder="Enter Image Name" id="itemimagepath" >
+                    </div>
+                    <div class="inbut-box">
+                        <span class="details">Category</span>
+                        <input asp-for="item.category" placeholder="Enter Item Category" id="itemcategory" >
+                    </div>
+                    <div class="inbut-box">
+                        <span class="details">Price</span>
+                        <input asp-for="item.price" placeholder="Enter Item Price" id="itemprice" oninput="validateNumericInput(this)">
+                    </div>
+                </div>
+                <div class="button clear">
+                    <input type="button" value="Clear" onclick="clearAllTextBoxes()" />
+                </div>
+
+                <div class="button add">
+                    <button type="submit" asp-page-handler="NewMenuItem">Add</button>
+                </div>
+
+                <button type="submit" name="handler" value="delete">Delete</button>
+
+
+                <div class="button update">
+                    <button type="submit" asp-page-handler="UpdateItem">Update</button>
+                </div>
+
+
+            </form>
+        </div>
+        @if (TempData["ResultMessage"] != null)
+        {
+            <div class="alert alert-info">
+                @TempData["ResultMessage"]
+            </div>
+        }
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-                <h1>@ViewData["Title"]</h1>
-
-                <!-- Text Boxes Container (unchanged) -->
-                <!-- Table Container -->
                 <div class="table-container">
                     <div class="container">
                         <h2>Menu Items</h2>
@@ -71,6 +122,7 @@
                             </li>
                             @foreach (var item in Model.MenuItems)
                             {
+                                <a href="#" class="table-row-link" onclick="SelectRow('@item.ItemID', '@item.Name', '@item.Description', '@item.ImagePath', '@item.Category', '@item.Price')">
                                 <li class="table-row">
                                     <div class="col col-1" data-label="Item ID">@item.ItemID</div>
                                     <div class="col col-2" data-label="Name">@item.Name</div>
@@ -79,6 +131,7 @@
                                     <div class="col col-5" data-label="Image Path">@item.ImagePath</div>
                                     <div class="col col-6" data-label="Category">@item.Category</div>
                                 </li>
+                                </a>
                             }
                         </ul>
                     </div>
@@ -86,8 +139,26 @@
             </div>
         </div>
     </div>
+    <script>
+        function SelectRow(itemID, itemName, itemDescription, itemImagePath, itemCategory, itemPrice) {
+            // Set the values of the textboxes based on the clicked row
+            document.getElementById('itemid').value = itemID;
+            document.getElementById('itemname').value = itemName;
+            document.getElementById('itemdescription').value = itemDescription;
+            document.getElementById('itemimagepath').value = itemImagePath;
+            document.getElementById('itemcategory').value = itemCategory;
+            document.getElementById('itemprice').value = itemPrice;
 
-    <!-- Script and Style Imports (unchanged) -->
+        }
 
+        function clearAllTextBoxes() {
+            location.reload();
+        }
+        function validateNumericInput(input) {
+            input.value = input.value.replace(/[^0-9.]/g, '');
+        }
+
+
+    </script>
 </body>
 </html>

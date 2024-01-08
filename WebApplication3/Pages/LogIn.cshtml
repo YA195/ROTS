@@ -7,6 +7,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,23 +19,25 @@
 
     <title>Your Page Title</title>
 </head>
+
+
 <body class="login-body">
     <div class="column-wrapper">
-        <div class="wrapper">
+        <div class="wrapper @TempData["WrapperActive"]">
             <div class="login-container">
                 <h2>Login</h2>
-                <form>
+                <form method="post" asp-page-handler="OnPost">
                     <div class="input-box">
                         <span class="icon"><box-icon name='user' type='solid' color='#ffffff'></box-icon></span>
-                        <input type="text" id="username" required>
+                        <input type="text" id="lusername" name="lusername" required>
                         <label for="username">Username</label>
                     </div>
                     <div class="input-box">
                         <span class="icon"><box-icon name='lock-alt' type='solid' color='#ffffff'></box-icon></span>
-                        <input type="password" id="password" required>
+                        <input type="password" id="lpassword" name="lpassword" required>
                         <label for="password">Password</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
+                    <button type="submit" name="handler" value="login" class="btn btn-primary">Login</button>
                     <div class="remember-forgot">
                         <label><input type="checkbox">Remember me</label>
                         <a href="#" class="forgot-link">Forgot Password?</a>
@@ -50,41 +55,41 @@
             </div>
             <div class="register-container">
                 <h2>Registration</h2>
-                <form>
+                <form method="post" asp-page-handler="RegisterUser">
                     <div class="input-box">
                         <span class="icon"><box-icon name='user' type='solid' color='#ffffff'></box-icon></span>
                         <div class="name-fields">
                             <div class="name-field">
-                                <input type="text" id="firstName" required>
+                                <input type="text" id="firstName" name="firstName" required>
                                 <label for="firstName">First Name</label>
                             </div>
                             <div class="name-field">
-                                <input type="text" id="lastName" required>
+                                <input type="text" id="lastName" name="lastName" required>
                                 <label for="lastName">Last Name</label>
                             </div>
                         </div>
                     </div>
                     <div class="input-box">
                         <span class="icon"><box-icon name='user' type='solid' color='#ffffff'></box-icon></span>
-                        <input type="text" id="username" required>
+                        <input type="text" id="username" name="username" required>
                         <label for="username">Username</label>
                     </div>
                     <div class="input-box">
                         <span class="icon"><box-icon name='lock-alt' type='solid' color='#ffffff'></box-icon></span>
-                        <input type="password" id="password" required>
+                        <input type="password" id="password" name="password" required>
                         <label for="password">Password</label>
                     </div>
                     <div class="input-box">
                         <span class="icon"><box-icon name='user' type='solid' color='#ffffff'></box-icon></span>
-                        <input type="password" id="confirmPassword" required>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required>
                         <label for="confirmPassword">Confirm Password</label>
                     </div>
                     <div class="input-box">
                         <span class="icon"><box-icon type='solid' name='phone' color='#ffffff'></box-icon></span>
-                        <input type="text" id="PhoneNum" required>
+                        <input type="text" id="PhoneNum" name="phoneNum" required>
                         <label for="PhoneNum">Phone Number</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Register</button>
+                    <button type="submit" class="btn btn-primary" name="handler" value="register">Register</button>
                     <div class="remember-forgot">
                         <label><input type="checkbox"> I agree to the terms & conditions</label>
                     </div>
@@ -96,11 +101,47 @@
                             </a>
                         </p>
                     </div>
+
                 </form>
+
             </div>
+
             
         </div>
+       
     </div>
-    <script src="~/js/CustomA.js"></script>
+    <script src="~/js/CustomA.js">
+
+
+    </script>
+
+
+    <script>
+        function registerData() {
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const phoneNum = document.getElementById('PhoneNum').value;
+        }
+        function registerData() {
+            const username = document.getElementById('lusername').value;
+            const password = document.getElementById('lpassword').value;
+           
+        }
+
+    </script>
+    @if (TempData["ResultMessage"] != null)
+    {
+        <script>
+            Swal.fire({
+                icon: 'info',
+                title: 'Registration Result',
+                text: '@TempData["ResultMessage"]',
+            });
+        </script>
+    }
+
 </body>
 </html>

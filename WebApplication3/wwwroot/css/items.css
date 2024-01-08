@@ -124,6 +124,7 @@ h2 {
             text-align: right;
         }
 }
+
 .container.fform {
     width: 100% !important;
     max-width: 1170px;
@@ -182,7 +183,7 @@ form .inbut-box {
         border-color: #9b29b6;
     }
 
-form .button input {
+form .button input, form .button button {
     height: 45px;
     width: 100%;
     outline: none;
@@ -198,11 +199,12 @@ form .button input {
     border: none
 }
 
-    form .button input:hover {
+    form .button input:hover, form .button button:hover {
         background: linear-gradient(90deg, rgba(146,69,37,1) 0%, rgba(95,1,1,1) 64%);
         transition: background 0.3s ease-in;
-        box-shadow:none;
+        box-shadow: none;
     }
+
 .table-row-link {
     display: block; /* Make the entire anchor tag clickable */
     text-decoration: none; /* Remove default anchor tag styling */
@@ -216,4 +218,3 @@ form .button input {
         letter-spacing: 2px;
         transition: 1s
     }
- 

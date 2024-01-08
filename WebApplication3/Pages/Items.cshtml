@@ -1,164 +1,179 @@
-﻿@page
-@model WebApplication3.Pages.ItemsModel
-@{
-    ViewData["Title"] = "Items";
-}
+﻿    @page
+    @model WebApplication3.Pages.ItemsModel
+    @{
+        ViewData["Title"] = "Items";
+    }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <title>@ViewData["Title"]</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="~/css/maneger.css" />
-    <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
-    <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
-    <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
-    <link rel="stylesheet" type="text/css" href="css/util.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="~/css/items.css"> <!-- Reference the new CSS file -->
-</head>
-<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>@ViewData["Title"]</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link rel="stylesheet" href="~/css/maneger.css" />
+        <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+        <link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+        <link rel="stylesheet" type="text/css" href="vendor/perfect-scrollbar/perfect-scrollbar.css">
+        <link rel="stylesheet" type="text/css" href="css/util.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+        <link rel="stylesheet" type="text/css" href="~/css/items.css"> <!-- Reference the new CSS file -->
+    </head>
+    <body>
 
-    <div id="wrapper">
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
-                <li class="active">
-                    <a asp-page="/Items">Menu </a>
-                </li>
-                <li>
-                    <a asp-page="/DeliveryWorkers">Workers</a>
-                </li>
-                <li>
-                    <a asp-page="#">Orders</a>
-                </li>
-                <li>
-                    <a asp-page="#">Customers</a>
-                </li>
-                <li>
-                    <a asp-page="#">Suppliers</a>
-                </li>
-                <li>
-                    <a asp-page="/Discount">Promo Codes</a>
-                </li>
-                <li>
-                    <a asp-page="#">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <div class="container fform">
-            <div class="title">Menu Items</div>
-            <form method="post" asp-page-handler="OnPost">
-                <div class="item-details">
-                    <div class="inbut-box">
-                        <span class="details">Item ID</span>
-                        <input asp-for="NewItemId" placeholder="Enter Item ID" id="itemid" disabled>
-                        <input type="hidden" asp-for="item.itemid">
+        <div id="wrapper">
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
+                    <li class="active">
+                        <a asp-page="/Items">Menu </a>
+                    </li>
+                    <li>
+                        <a asp-page="/DeliveryWorkers">Workers</a>
+                    </li>
+                    <li>
+                        <a asp-page="#">Orders</a>
+                    </li>
+                    <li>
+                        <a asp-page="#">Customers</a>
+                    </li>
+                    <li>
+                        <a asp-page="#">Suppliers</a>
+                    </li>
+                    <li>
+                        <a asp-page="/Discount">Promo Codes</a>
+                    </li>
+                    <li>
+                        <a asp-page="#">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="container fform">
+                <div class="title">Menu Items</div>
+                <form method="post" asp-page-handler="OnPost">
+                    <div class="item-details">
+                        <div class="inbut-box">
+                            <span class="details">Item ID</span>
+                            <input asp-for="NewItemId" placeholder="Enter Item ID" id="itemid"  name="itemid" required>
+    @*                         <input type="hidden" asp-for="item.itemid">
+     *@                    </div>
+
+                        <div class="inbut-box">
+                            <span class="details">Item Name</span>
+                            <input  placeholder="Enter Item Name" id="itemname" name="itemName" required />
+                        </div>
+                        <div class="inbut-box">
+                            <span class="details">Description</span>
+                            <input  placeholder="Enter Item Description" required id="itemdescription" name="description" />
+                        </div>
+                        <div class="inbut-box">
+                            <span class="details">Image</span>
+                            <input  placeholder="Enter Image Name" required id="itemimagepath" name="imagePath" />
+                        </div>
+                        <div class="inbut-box">
+                            <span class="details">Category</span>
+                            <input  placeholder="Enter Item Category" required id="itemcategory" name="category" />
+                        </div>
+                        <div class="inbut-box">
+                            <span class="details">Price</span>
+                            <input  placeholder="Enter Item Price" required id="itemprice" name="price" oninput="validateNumericInput(this)">
+                        </div>
+
 
                     </div>
+                    <div class="button clear">
+                        <input type="button" value="Clear" onclick="clearAllTextBoxes()" />
+                    </div>
 
-                    <div class="inbut-box">
-                        <span class="details">Item Name</span>
-                        <input  asp-for="item.itemname"  placeholder="Enter Item Name" id="itemname" >
-                    </div>
-                    <div class="inbut-box">
-                        <span class="details">Description</span>
-                        <input  asp-for="item.description" placeholder="Enter Item Description" id="itemdescription" >
-                    </div>
-                    <div class="inbut-box">
-                        <span class="details">Image</span>
-                        <input asp-for="item.imagepath"  placeholder="Enter Image Name" id="itemimagepath" >
-                    </div>
-                    <div class="inbut-box">
-                        <span class="details">Category</span>
-                        <input asp-for="item.category" placeholder="Enter Item Category" id="itemcategory" >
-                    </div>
-                    <div class="inbut-box">
-                        <span class="details">Price</span>
-                        <input asp-for="item.price" placeholder="Enter Item Price" id="itemprice" oninput="validateNumericInput(this)">
-                    </div>
-                </div>
-                <div class="button clear">
-                    <input type="button" value="Clear" onclick="clearAllTextBoxes()" />
-                </div>
-
-                <div class="button add">
-                    <button type="submit" asp-page-handler="NewMenuItem">Add</button>
-                </div>
-
+                <div class="button">
+                <button type="submit" name="handler" value="add">Add</button>
                 <button type="submit" name="handler" value="delete">Delete</button>
-
-
-                <div class="button update">
-                    <button type="submit" asp-page-handler="UpdateItem">Update</button>
+                <button type="submit" name="handler" value="update">Update</button>
                 </div>
 
+                
 
-            </form>
-        </div>
-        @if (TempData["ResultMessage"] != null)
-        {
-            <div class="alert alert-info">
-                @TempData["ResultMessage"]
+
+                </form>
             </div>
-        }
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="table-container">
-                    <div class="container">
-                        <h2>Menu Items</h2>
-                        <ul class="responsive-table">
-                            <li class="table-header">
-                                <div class="col col-1">Item ID</div>
-                                <div class="col col-2">Name</div>
-                                <div class="col col-3">Description</div>
-                                <div class="col col-4">Price</div>
-                                <div class="col col-5">Image Path</div>
-                                <div class="col col-6">Category</div>
-                            </li>
-                            @foreach (var item in Model.MenuItems)
-                            {
-                                <a href="#" class="table-row-link" onclick="SelectRow('@item.ItemID', '@item.Name', '@item.Description', '@item.ImagePath', '@item.Category', '@item.Price')">
-                                <li class="table-row">
-                                    <div class="col col-1" data-label="Item ID">@item.ItemID</div>
-                                    <div class="col col-2" data-label="Name">@item.Name</div>
-                                    <div class="col col-3" data-label="Description">@item.Description</div>
-                                    <div class="col col-4" data-label="Price">@item.Price</div>
-                                    <div class="col col-5" data-label="Image Path">@item.ImagePath</div>
-                                    <div class="col col-6" data-label="Category">@item.Category</div>
+            @if (TempData["ResultMessage"] != null)
+            {
+                <div class="alert alert-info">
+                    @TempData["ResultMessage"]
+                </div>
+            }
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+                    <div class="table-container">
+                        <div class="container">
+                            <h2>Menu Items</h2>
+                            <ul class="responsive-table">
+                                <li class="table-header">
+                                    <div class="col col-1">Item ID</div>
+                                    <div class="col col-2">Name</div>
+                                    <div class="col col-3">Description</div>
+                                    <div class="col col-4">Price</div>
+                                    <div class="col col-5">Image Path</div>
+                                    <div class="col col-6">Category</div>
                                 </li>
-                                </a>
-                            }
-                        </ul>
+                                @foreach (var item in Model.MenuItems)
+                                {
+                                    <a href="#" class="table-row-link" onclick="SelectRow('@item.ItemID', '@item.Name', '@item.Description', '@item.ImagePath', '@item.Category', '@item.Price')">
+                                    <li class="table-row">
+                                        <div class="col col-1" data-label="Item ID">@item.ItemID</div>
+                                        <div class="col col-2" data-label="Name">@item.Name</div>
+                                        <div class="col col-3" data-label="Description">@item.Description</div>
+                                        <div class="col col-4" data-label="Price">@item.Price</div>
+                                        <div class="col col-5" data-label="Image Path">@item.ImagePath</div>
+                                        <div class="col col-6" data-label="Category">@item.Category</div>
+                                    </li>
+                                    </a>
+                                }
+                            
+
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <script>
-        function SelectRow(itemID, itemName, itemDescription, itemImagePath, itemCategory, itemPrice) {
-            // Set the values of the textboxes based on the clicked row
-            document.getElementById('itemid').value = itemID;
-            document.getElementById('itemname').value = itemName;
-            document.getElementById('itemdescription').value = itemDescription;
-            document.getElementById('itemimagepath').value = itemImagePath;
-            document.getElementById('itemcategory').value = itemCategory;
-            document.getElementById('itemprice').value = itemPrice;
+        <script>
+            function SelectRow(itemID, itemName, itemDescription, itemImagePath, itemCategory, itemPrice) {
+                // Set the values of the textboxes based on the clicked row
+                document.getElementById('itemid').value = itemID;
+                document.getElementById('itemname').value = itemName;
+                document.getElementById('itemdescription').value = itemDescription;
+                document.getElementById('itemimagepath').value = itemImagePath;
+                document.getElementById('itemcategory').value = itemCategory;
+                document.getElementById('itemprice').value = itemPrice;
 
-        }
+                // document.getElementById('itemid').value = itemID;
 
-        function clearAllTextBoxes() {
-            location.reload();
-        }
-        function validateNumericInput(input) {
-            input.value = input.value.replace(/[^0-9.]/g, '');
-        }
+            }
+            function data() {
+                const itemID = document.getElementById('itemid').value;
+                const itemName = document.getElementById('itemname').value;
+                const itemDescription = document.getElementById('itemdescription').value;
+                const itemImagePath = document.getElementById('itemimagepath').value;
+                const itemCategory = document.getElementById('itemcategory').value;
+                const itemPrice = document.getElementById('itemprice').value;
+
+                // Do something with the values if needed
+
+            }
 
 
-    </script>
-</body>
-</html>
+            function clearAllTextBoxes() {
+                location.reload();
+            }
+            function validateNumericInput(input) {
+                input.value = input.value.replace(/[^0-9.]/g, '');
+            }
+       
+
+
+        </script>
+    </body>
+    </html>

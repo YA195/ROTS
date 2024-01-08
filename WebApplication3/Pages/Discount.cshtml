@@ -48,40 +48,94 @@
                     <a asp-page="#">Contact</a>
                 </li>
             </ul>
-        </div>
-        <div class="container fform">
-            <div class="title">Coupons</div>
-            <form action="3">
+        </div>  @if (TempData["ResultMessage"] != null)
+        {
+            <div class="alert alert-info">
+                @TempData["ResultMessage"]
+            </div>
+        }
+@*         <div class="container fform">
+            <div class="title">menu items</div>
+            <form method="post" asp-page-handler="onpost">
                 <div class="item-details">
                     <div class="inbut-box">
-                        <span class="details">Coupon ID</span>
-                        <input type="text" placeholder="Enter Coupon ID" required>
+                        <span class="details">item id</span>
+                        <input asp-for="newitemid" placeholder="enter item id" id="itemid" name="itemid" required>
+                      
+                    </div>
+
+                    <div class="inbut-box">
+                        <span class="details">item name</span>
+                        <input placeholder="enter item name" id="itemname" name="itemname" required />
                     </div>
                     <div class="inbut-box">
-                        <span class="details">Code</span>
-                        <input type="text" placeholder="Enter the Code" required>
+                        <span class="details">description</span>
+                        <input placeholder="enter item description" required id="itemdescription" name="description" />
                     </div>
                     <div class="inbut-box">
-                        <span class="details">Discount</span>
-                        <input type="text" placeholder="Discoubt Percentage" required>
+                        <span class="details">image</span>
+                        <input placeholder="enter image name" required id="itemimagepath" name="imagepath" />
                     </div>
                     <div class="inbut-box">
-                        <span for="dateofbirth">Epiry Date</span>
+                        <span class="details">category</span>
+                        <input placeholder="enter item category" required id="itemcategory" name="category" />
+                    </div>
+                    <div class="inbut-box">
+                        <span class="details">price</span>
+                        <input placeholder="enter item price" required id="itemprice" name="price" oninput="validatenumericinput(this)">
+                    </div>
+
+
+                </div>
+                <div class="button clear">
+                    <input type="button" value="clear" onclick="clearalltextboxes()" />
+                </div>
+
+                <button type="submit" name="handler" value="add">add</button>
+                <button type="submit" name="handler" value="delete">delete</button>
+                <button type="submit" name="handler" value="update">update</button>
+
+
+
+
+
+            </form>
+        </div>
+ *@      
+        <div class="container fform">
+            <div class="title">coupons</div>
+            <form method="post" asp-page-handler="onpost">
+                <div class="item-details">
+                    <div class="inbut-box">
+                        <span class="details">item id</span>
+                        <input asp-for="NewCouponId" placeholder="enter Coupon id" id="couponid" name="couponid" required>
+
+                    </div>
+                    <div class="inbut-box">
+                        <span class="details">code</span>
+                        <input placeholder="enter Coupon Code" id="code" name="code" required />
+                    </div>
+                    <div class="inbut-box">
+                        <span class="details">discount</span>
+                        <input placeholder="enter Coupon Discount" id="discountpercentage" name="discountpercentage" required />
+                    </div>
+                    <div class="inbut-box">
+                        <span for="dateofbirth">epiry date</span>
                         <input type="date" name="expirydate" id="expirydate">
                     </div>
                     <div class="inbut-box">
-                        <span class="details">Minimum</span>
-                        <input type="text" placeholder="Minimum Total" required>
+                        <span class="details">minimum</span>
+                        <input type="text" name="minimumtotal " id="minimumtotal" placeholder="minimum total" required>
                     </div>
                 </div>
                 <div class="button add">
-                    <input type="submit" value="Add" />
+                    <button type="submit" name="handler" value="add">Add</button>
                 </div>
                 <div class="button delete">
-                    <input type="submit" value="Delete" />
+                    <button type="submit" name="handler" value="delete">Delete</button>
                 </div>
                 <div class="button update">
-                    <input type="submit" value="Update" />
+                    <button type="submit" name="handler" value="update">Update</button>
                 </div>
 
             </form>
@@ -99,17 +153,18 @@
                                 <div class="col col-4">Expiry Date</div>
                                 <div class="col col-5">Minimum Of Total</div>
                             </li>
-                           @*  @foreach (var item in Model.MenuItems)
+                            @foreach (var coupon in Model.Coupons)
                             {
+                                <a href="#" class="table-row-link" onclick="SelectRow('@coupon.CouponID', '@coupon.Code', '@coupon.DiscountPercentage', '@coupon.ExpiryDate', '@coupon.MinimumTotal')">
                                 <li class="table-row">
-                                    <div class="col col-1" data-label="Item ID">@item.ItemID</div>
-                                    <div class="col col-2" data-label="Name">@item.Name</div>
-                                    <div class="col col-3" data-label="Description">@item.Description</div>
-                                    <div class="col col-4" data-label="Price">@item.Price</div>
-                                    <div class="col col-5" data-label="Image Path">@item.ImagePath</div>
-                                    <div class="col col-6" data-label="Category">@item.Category</div>
+                                    <div class="col col-1" data-label="Coupon ID">@coupon.CouponID</div>
+                                    <div class="col col-2" data-label="Code">@coupon.Code</div>
+                                    <div class="col col-3" data-label="Discount Percentage">@coupon.DiscountPercentage</div>
+                                    <div class="col col-4" data-label="Expiry Date">@coupon.ExpiryDate.ToShortDateString()</div>
+                                    <div class="col col-5" data-label="Minimum Of Total">@coupon.MinimumTotal</div>
                                 </li>
-                            } *@
+                                </a>
+                            }
                         </ul>
                     </div>
                 </div>
@@ -117,7 +172,24 @@
         </div>
     </div>
 
-    <!-- Script and Style Imports (unchanged) -->
+    <script>
+        function SelectRow(couponID, code, discountPercentage, expiryDate, minimumTotal) {
+            // Set the values of the textboxes based on the clicked row
+            document.getElementById('couponid').value = couponID;
+            document.getElementById('code').value = code;
+            document.getElementById('discountpercentage').value = discountPercentage;
+            document.getElementById('expirydate').value = expiryDate;
+            document.getElementById('minimumtotal').value = minimumTotal;
+        }
+
+        function clearAllTextBoxes() {
+            location.reload();
+        }
+
+        function validateNumericInput(input) {
+            input.value = input.value.replace(/[^0-9.]/g, '');
+        }
+    </script>
 
 </body>
 </html>

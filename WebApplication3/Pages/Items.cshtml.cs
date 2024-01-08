@@ -12,12 +12,10 @@ namespace WebApplication3.Pages
     public class ItemsModel : PageModel
     {
         private readonly string _connectionString;
-        private readonly DB _db;
 
         public ItemsModel(IConfiguration configuration)
         {
             _connectionString = configuration.GetConnectionString("DefaultConnection");
-            _db = new DB(_connectionString);
         }
 
         public List<MenuItem> MenuItems { get; set; } = new List<MenuItem>();
@@ -26,8 +24,7 @@ namespace WebApplication3.Pages
         [BindProperty]
         public MenuItem NewMenuItem { get; set; }
 
-        [BindProperty]
-        public Item ItemIdToDelete { get; set; }
+        public int ItemIdToDelete { get; set; }
 
         [BindProperty]
         public MenuItem UpdatedMenuItem { get; set; }
@@ -93,20 +90,108 @@ namespace WebApplication3.Pages
             return menuItems;
         }
 
+        [HttpPost]
+        [HttpPost]
         public IActionResult OnPost()
         {
-            switch (Request.Form["handler"])
+            try
             {
-                case "delete":
-                    return DeleteMenuItem(ItemIdToDelete);
+                switch (Request.Form["handler"])
+                {
+                    case "delete":
+                        int selectedItemId = Convert.ToInt32(Request.Form["itemid"]);
+                        return DeleteMenuItem(selectedItemId);
 
-                default:
-                    return RedirectToPage();
+                    case "update":
+                        // Extract parameters from the form submission
+                        int itemIdToUpdate = Convert.ToInt32(Request.Form["itemid"]);
+                        string itemNameToUpdate = Request.Form["itemname"];
+                        string descriptionToUpdate = Request.Form["description"];
+                        string imagePathToUpdate = Request.Form["imagepath"];
+                        string categoryToUpdate = Request.Form["category"];
+                        decimal priceToUpdate = Convert.ToDecimal(Request.Form["price"]);
+
+                        UpdateMenuItem(itemIdToUpdate, itemNameToUpdate, descriptionToUpdate, priceToUpdate, imagePathToUpdate, categoryToUpdate);
+                        break;
+
+                    case "add":
+                        // Extract parameters for adding a new item
+                        int itemIdToAdd = Convert.ToInt32(Request.Form["itemid"]);
+                        string itemNameToAdd = Request.Form["itemName"];
+                        string descriptionToAdd = Request.Form["description"];
+                        string imagePathToAdd = Request.Form["imagePath"];
+                        string categoryToAdd = Request.Form["category"];
+                        decimal priceToAdd = Convert.ToDecimal(Request.Form["price"]);
+
+                        AddMenuItem(itemIdToAdd, itemNameToAdd, descriptionToAdd, priceToAdd, imagePathToAdd, categoryToAdd);
+                        break;
+                        // item to add itemname to add item path to add description to addd image pathh to add category to add 
+                        
+
+                        // Handle other cases as needed
+
+                }
+
+                return RedirectToPage();
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                TempData["ResultMessage"] = $"Error: {ex.Message}";
+                return RedirectToPage();
             }
         }
 
 
-        public IActionResult DeleteMenuItem(Item item)
+        [HttpPost]
+        public IActionResult UpdateMenuItem(
+            [FromForm(Name = "itemid")] int itemId,
+            [FromForm(Name = "itemname")] string itemName,
+            [FromForm(Name = "description")] string description,
+            [FromForm(Name = "price")] decimal price,
+            [FromForm(Name = "imagepath")] string imagePath,
+            [FromForm(Name = "category")] string category)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(itemName) || string.IsNullOrEmpty(description) || string.IsNullOrEmpty(imagePath) || string.IsNullOrEmpty(category))
+                {
+                    TempData["ResultMessage"] = "Error updating item: Some parameters are null or empty.";
+                    return RedirectToPage();
+                }
+
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+                    connection.Open();
+                    string query = "UPDATE MenuItem SET Name = @Name, Description = @Description, " +
+                                   "Price = @Price, ImagePath = @ImagePath, Category = @Category " +
+                                   "WHERE ItemID = @ItemID";
+                    SqlCommand cmd = new SqlCommand(query, connection);
+
+                    cmd.Parameters.AddWithValue("@ItemID", itemId);
+                    cmd.Parameters.AddWithValue("@Name", itemName);
+                    cmd.Parameters.AddWithValue("@Description", description);
+                    cmd.Parameters.AddWithValue("@Price", price);
+                    cmd.Parameters.AddWithValue("@ImagePath", imagePath);
+                    cmd.Parameters.AddWithValue("@Category", category);
+
+                    cmd.ExecuteNonQuery();
+
+                    TempData["ResultMessage"] = $"Item with ID {itemId} updated successfully.";
+                }
+
+                return RedirectToPage();
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                TempData["ResultMessage"] = $"Error updating item: {ex.Message}";
+                return RedirectToPage();
+            }
+        }
+
+        [HttpPost]
+        public IActionResult DeleteMenuItem([FromForm(Name = "itemid")] int itemId)
         {
             string resultMessage;
 
@@ -114,24 +199,87 @@ namespace WebApplication3.Pages
             {
                 connection.Open();
 
-                string query = $"DELETE FROM MenuItem WHERE ItemID = {item.itemid}";
+                string query = $"DELETE FROM MenuItem WHERE ItemID = @ItemID";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@ItemID", itemId);
+
                     int rowsAffected = command.ExecuteNonQuery();
 
                     resultMessage = rowsAffected > 0
-                        ? "Item deleted successfully."
-                        : "Item not found or deletion failed.";
+                        ? $"Item with ID {itemId} deleted successfully."
+                        : $"Item with ID {itemId} not found or deletion failed.";
                 }
             }
 
             TempData["ResultMessage"] = resultMessage;
             return RedirectToPage();
         }
+        public IActionResult AddMenuItem(
+     [FromForm(Name = "itemid")] int itemId,
+     [FromForm(Name = "itemname")] string itemName,
+     [FromForm(Name = "description")] string description,
+     [FromForm(Name = "price")] decimal price,
+     [FromForm(Name = "imagepath")] string imagePath,
+     [FromForm(Name = "category")] string category)
+        {
+            try
+            {
+                // Check if any of the required parameters are null or empty
+                if (string.IsNullOrEmpty(itemName) || string.IsNullOrEmpty(description) || string.IsNullOrEmpty(imagePath) || string.IsNullOrEmpty(category))
+                {
+                    TempData["ResultMessage"] = "Error adding item: Some parameters are null or empty.";
+                    return RedirectToPage();
+                }
 
+                // Check if the item with the specified ItemID exists
+                if (GetItemById(itemId) != null)
+                {
+                    TempData["ResultMessage"] = $"Error adding item: Item with ID {itemId} already exists.";
+                    return RedirectToPage();
+                }
 
+                using (SqlConnection connection = new SqlConnection(_connectionString))
+                {
+                    connection.Open();
 
+                    // Insert the new item
+                    string query = "INSERT INTO MenuItem (ItemID, Name, Description, Price, ImagePath, Category) " +
+                                   "VALUES (@ItemID, @Name, @Description, @Price, @ImagePath, @Category)";
+                    SqlCommand cmd = new SqlCommand(query, connection);
+
+                    cmd.Parameters.AddWithValue("@ItemID", itemId);
+                    cmd.Parameters.AddWithValue("@Name", itemName);
+                    cmd.Parameters.AddWithValue("@Description", description);
+                    cmd.Parameters.AddWithValue("@Price", price);
+                    cmd.Parameters.AddWithValue("@ImagePath", imagePath);
+                    cmd.Parameters.AddWithValue("@Category", category);
+
+                    cmd.ExecuteNonQuery();
+
+                    TempData["ResultMessage"] = $"Item with ID {itemId} added successfully.";
+                }
+
+                return RedirectToPage();
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions
+                TempData["ResultMessage"] = $"Error adding item: {ex.Message}";
+                return RedirectToPage();
+            }
+        }
+
+        
+
+        // Function to check if an item with a specific ID exists
+        private MenuItem GetItemById(int itemId)
+        {
+            // Implement your logic to retrieve an item by ID from the database
+            // You can use the existing GetMenuItems() method and filter the result
+            return GetMenuItems()?.FirstOrDefault(item => item.ItemID == itemId);
+        }
 
 
         // MenuItem.cs
@@ -144,25 +292,5 @@ namespace WebApplication3.Pages
             public string ImagePath { get; set; }
             public string Category { get; set; }
         }
-        public Item item { get; set; }
-        public class Item
-        {
-            [BindProperty]
-            public string itemname { get; set; }
-            [BindProperty]
-            public int itemid { get; set; }
-
-            [BindProperty]
-            public string description { get; set; }
-            [BindProperty]
-            public string imagepath { get; set; }
-            [BindProperty]
-            public string category { get; set; }
-            [BindProperty]
-            public decimal price { get; set; }
-
-
-        }
-
     }
 }
